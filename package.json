@@ -1,11 +1,50 @@
 {
-    "name" : "content-entry-filesystem",
-    "type": "module",
-    "main": "./src/content-entry-filesystem.mjs",
-    "exports": {
-      ".": "./src/content-entry-filesystem.mjs"
-    },
-    "depends" : {
-        "content-entry" : "3.0.0"
+  "name": "content-entry-filesystem",
+  "version": "0.0.0-semantic-release",
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "main": "./src/content-entry-filesystem.mjs",
+  "exports": {
+    ".": "./src/content-entry-filesystem.mjs"
+  },
+  "description": "Content entries within the file system",
+  "contributors": [
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
     }
+  ],
+  "license": "BSD-2-Clause",
+  "scripts": {
+    "cover": "--overwrite-- c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
+    "test": "ava --timeout 2m",
+    "docs": "--overwrite-- documentation readme ./src/content-entry-filesystem.mjs --section=API",
+    "lint": "--overwrite-- documentation lint ./src/content-entry-filesystem.mjs"
+  },
+  "devDependencies": {
+    "c8": "^7.1.2",
+    "ava": "^3.8.2",
+    "documentation": "^13.0.0",
+    "semantic-release": "^17.0.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arlac77/content-entry-filesystem.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arlac77/content-entry-filesystem/issues"
+  },
+  "homepage": "https://github.com/arlac77/content-entry-filesystem#readme",
+  "template": {
+    "inheritFrom": [
+      "arlac77/template-arlac77-github",
+      "arlac77/template-esm-only"
+    ]
+  },
+  "depends": {
+    "content-entry": "3.0.0"
+  }
 }
