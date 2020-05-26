@@ -44,7 +44,7 @@
       "arlac77/template-esm-only"
     ]
   },
-  "depends": {
-    "content-entry": "3.0.0"
+  "dependencies": {
+    "content-entry": "2.5.0"
   }
 }
