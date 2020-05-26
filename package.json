@@ -1,0 +1,11 @@
+{
+    "name" : "content-entry-filesystem",
+    "type": "module",
+    "main": "./src/content-entry-filesystem.mjs",
+    "exports": {
+      ".": "./src/content-entry-filesystem.mjs"
+    },
+    "depends" : {
+        "content-entry" : "2.4.2"
+    }
+}
