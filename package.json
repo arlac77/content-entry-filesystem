@@ -24,6 +24,9 @@
     "docs": "documentation readme ./src/content-entry-filesystem.mjs --section=API",
     "lint": "documentation lint ./src/content-entry-filesystem.mjs"
   },
+  "dependencies": {
+    "content-entry": "2.5.0"
+  },
   "devDependencies": {
     "ava": "^3.8.2",
     "c8": "^7.1.2",
@@ -43,8 +46,5 @@
       "arlac77/template-arlac77-github",
       "arlac77/template-esm-only"
     ]
-  },
-  "dependencies": {
-    "content-entry": "2.5.0"
   }
 }
