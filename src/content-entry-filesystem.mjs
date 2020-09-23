@@ -4,6 +4,8 @@ import { createReadStream, createWriteStream, access, constants } from "fs";
 
 /**
  * A content entry backed by a file
+ * @param {string} name
+ * @param {string} baseDir
  */
 export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
   constructor(name, baseDir) {
