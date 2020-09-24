@@ -32,8 +32,8 @@ A content entry backed by a file
 
 ### Parameters
 
--   `name`  
--   `baseDir`  
+-   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `baseDir` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 ### filename
 
