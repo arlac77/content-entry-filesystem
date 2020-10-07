@@ -1,6 +1,7 @@
 import { ContentEntry,StreamContentEntryMixin } from "content-entry";
 import { join } from "path";
-import { createReadStream, createWriteStream, access, constants } from "fs";
+import { createReadStream, createWriteStream, constants } from "fs";
+import { access } from "fs/promises";
 
 /**
  * A content entry backed by a file
@@ -20,12 +21,18 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
     return join(this.baseDir, this.name);
   }
 
+  /**
+   * Check for presence
+   */
   async getExists() {
-    return await new Promise((resolve, reject) => {
-      access(this.filename, constants.F_OK, error =>
-        resolve(error ? false : true)
-      );
-    });
+    try { 
+      await access(this.filename, constants.F_OK);
+    }
+    catch(e) {
+      return false;
+    }
+
+    return true;
   }
 
   async getReadStream(options) {
