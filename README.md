@@ -23,6 +23,7 @@ content entries for the file system
 -   [FileSystemEntry](#filesystementry)
     -   [Parameters](#parameters)
     -   [filename](#filename)
+    -   [getExists](#getexists)
 
 ## FileSystemEntry
 
@@ -38,6 +39,10 @@ A content entry backed by a file
 ### filename
 
 absolute file path
+
+### getExists
+
+Check for presence
 
 # install
 
