@@ -3,7 +3,7 @@
 [![minified size](https://badgen.net/bundlephobia/min/content-entry-filesystem)](https://bundlephobia.com/result?p=content-entry-filesystem)
 [![downloads](http://img.shields.io/npm/dm/content-entry-filesystem.svg?style=flat-square)](https://npmjs.org/package/content-entry-filesystem)
 [![GitHub Issues](https://img.shields.io/github/issues/arlac77/content-entry-filesystem.svg?style=flat-square)](https://github.com/arlac77/content-entry-filesystem/issues)
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Farlac77%2Fcontent-entry-filesystem%2Fbadge&style=flat)](https://actions-badge.atrox.dev/arlac77/content-entry-filesystem/goto)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Farlac77%2Fcontent-entry-filesystem%2Fbadge\&style=flat)](https://actions-badge.atrox.dev/arlac77/content-entry-filesystem/goto)
 [![Styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Known Vulnerabilities](https://snyk.io/test/github/arlac77/content-entry-filesystem/badge.svg)](https://snyk.io/test/github/arlac77/content-entry-filesystem)
@@ -19,10 +19,10 @@ content entries for the file system
 
 ### Table of Contents
 
--   [FileSystemEntry](#filesystementry)
-    -   [Parameters](#parameters)
-    -   [filename](#filename)
-    -   [getExists](#getexists)
+*   [FileSystemEntry](#filesystementry)
+    *   [Parameters](#parameters)
+    *   [filename](#filename)
+    *   [getExists](#getexists)
 
 ## FileSystemEntry
 
@@ -32,8 +32,8 @@ A content entry backed by a file
 
 ### Parameters
 
--   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `baseDir` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `baseDir` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 ### filename
 
