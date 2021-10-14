@@ -22,17 +22,17 @@ test("fs entry create", async t => {
   });
 });
 
-test("fs entry getExists true", async t => {
+test("fs entry isExistent true", async t => {
   const entry = new FileSystemEntry("file.txt", join(here, "fixtures"));
-  t.true(await entry.getExists());
+  t.true(await entry.isExistent);
 });
 
-test("fs entry getExists false", async t => {
+test("fs entry isExistent false", async t => {
   const entry = new FileSystemEntry(
     "none_existing.txt",
     join(here, "fixtures")
   );
-  t.false(await entry.getExists());
+  t.false(await entry.isExistent);
 });
 
 test("fs entry getString", async t => {

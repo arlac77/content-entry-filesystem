@@ -1,4 +1,4 @@
-import { ContentEntry,StreamContentEntryMixin } from "content-entry";
+import { ContentEntry, StreamContentEntryMixin } from "content-entry";
 import { join } from "path";
 import { createReadStream, createWriteStream, constants } from "fs";
 import { access } from "fs/promises";
@@ -24,15 +24,8 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
   /**
    * Check for presence
    */
-  async getExists() {
-    try { 
-      await access(this.filename, constants.F_OK);
-    }
-    catch(e) {
-      return false;
-    }
-
-    return true;
+  get isExistent() {
+    return exits(this.filename);
   }
 
   async getReadStream(options) {
@@ -48,4 +41,14 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
     json.baseDir = this.baseDir;
     return json;
   }
+}
+
+async function exits(file) {
+  try {
+    await access(file, constants.F_OK);
+  } catch (e) {
+    return false;
+  }
+
+  return true;
 }
