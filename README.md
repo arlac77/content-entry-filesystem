@@ -22,7 +22,7 @@ content entries for the file system
 *   [FileSystemEntry](#filesystementry)
     *   [Parameters](#parameters)
     *   [filename](#filename)
-    *   [getExists](#getexists)
+    *   [isExistent](#isexistent)
 
 ## FileSystemEntry
 
@@ -39,7 +39,7 @@ A content entry backed by a file
 
 absolute file path
 
-### getExists
+### isExistent
 
 Check for presence
 
