@@ -38,6 +38,12 @@ test("fs entry isExistent false", async t => {
 test("fs entry getString", async t => {
   const entry = new FileSystemEntry("file.txt", join(here, "fixtures"));
   t.is(await entry.getString(), "abc\n");
+  //t.is(await entry.string, "abc\n");
+});
+
+test.skip("fs entry get string", async t => {
+  const entry = new FileSystemEntry("file.txt", join(here, "fixtures"));
+  t.is(await entry.string, "abc\n");
 });
 
 test("fs entry getReadStream", async t => {

@@ -28,6 +28,16 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
     return exits(this.filename);
   }
 
+  get readStream()
+  {
+    return createReadStream(this.filename);
+  }
+
+  get writeStream()
+  {
+    return createWriteStream(this.filename);
+  }
+
   async getReadStream(options) {
     return createReadStream(this.filename, options);
   }
