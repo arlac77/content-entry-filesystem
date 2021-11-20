@@ -21,27 +21,60 @@ content entries for the file system
 
 *   [FileSystemEntry](#filesystementry)
     *   [Parameters](#parameters)
+    *   [Properties](#properties)
     *   [filename](#filename)
     *   [isExistent](#isexistent)
+    *   [getReadStream](#getreadstream)
+        *   [Parameters](#parameters-1)
+    *   [getWriteStream](#getwritestream)
+        *   [Parameters](#parameters-2)
 
 ## FileSystemEntry
 
 **Extends StreamContentEntryMixin(ContentEntry)**
 
-A content entry backed by a file
+A content entry backed by a file.
 
 ### Parameters
 
 *   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 *   `baseDir` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
+### Properties
+
+*   `baseDir` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+
 ### filename
 
-absolute file path
+Absolute file path.
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
 ### isExistent
 
-Check for presence
+Check for presence.
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** 
+
+### getReadStream
+
+#### Parameters
+
+*   `options`  
+
+**Meta**
+
+*   **deprecated**: This is deprecated.
+
+### getWriteStream
+
+#### Parameters
+
+*   `options`  
+
+**Meta**
+
+*   **deprecated**: This is deprecated.
 
 # install
 
