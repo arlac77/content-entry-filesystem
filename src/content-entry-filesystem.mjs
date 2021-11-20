@@ -1,7 +1,7 @@
-import { ContentEntry, StreamContentEntryMixin } from "content-entry";
 import { join } from "path";
 import { createReadStream, createWriteStream, constants } from "fs";
 import { access } from "fs/promises";
+import { ContentEntry, StreamContentEntryMixin } from "content-entry";
 
 /**
  * A content entry backed by a file.
@@ -13,7 +13,7 @@ import { access } from "fs/promises";
 export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
   constructor(name, baseDir) {
     super(name);
-    Object.defineProperties(this, { baseDir: { value: baseDir } });
+    this.baseDir = baseDir;
   }
 
   /**
@@ -64,7 +64,7 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
 async function exits(file) {
   try {
     await access(file, constants.F_OK);
-  } catch (e) {
+  } catch {
     return false;
   }
 
