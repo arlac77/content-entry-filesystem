@@ -4,9 +4,11 @@ import { createReadStream, createWriteStream, constants } from "fs";
 import { access } from "fs/promises";
 
 /**
- * A content entry backed by a file
+ * A content entry backed by a file.
  * @param {string} name
  * @param {string} baseDir
+ * 
+ * @property {string} baseDir
  */
 export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
   constructor(name, baseDir) {
@@ -15,41 +17,47 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
   }
 
   /**
-   * absolute file path
+   * Absolute file path.
+   * @return {string}
    */
   get filename() {
     return join(this.baseDir, this.name);
   }
 
   /**
-   * Check for presence
+   * Check for presence.
+   * @return {boolean}
    */
   get isExistent() {
     return exits(this.filename);
   }
 
-  get readStream()
-  {
+  get readStream() {
     return createReadStream(this.filename);
   }
 
-  get writeStream()
-  {
+  get writeStream() {
     return createWriteStream(this.filename);
-  }
-
-  async getReadStream(options) {
-    return createReadStream(this.filename, options);
-  }
-
-  async getWriteStream(options) {
-    return createWriteStream(this.filename, options);
   }
 
   toJSON() {
     const json = super.toJSON();
     json.baseDir = this.baseDir;
     return json;
+  }
+
+  /**
+   * @deprecated
+   */
+  async getReadStream(options) {
+    return createReadStream(this.filename, options);
+  }
+
+  /**
+   * @deprecated
+   */
+  async getWriteStream(options) {
+    return createWriteStream(this.filename, options);
   }
 }
 
