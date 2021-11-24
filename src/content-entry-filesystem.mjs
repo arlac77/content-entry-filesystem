@@ -8,6 +8,7 @@ import { ContentEntry, StreamContentEntryMixin } from "content-entry";
  * @param {string} name
  * @param {string} baseDir
  * 
+ * @property {string} name
  * @property {string} baseDir
  */
 export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
