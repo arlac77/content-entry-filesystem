@@ -27,7 +27,7 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
 
   /**
    * Check for presence.
-   * @return {boolean}
+   * @return {Promise<boolean>}
    */
   get isExistent() {
     return exits(this.filename);
