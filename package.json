@@ -23,7 +23,7 @@
     "docs": "documentation readme --section=API ./src/**/*.mjs",
     "lint": "npm run lint:docs && npm run lint:tsc",
     "lint:docs": "documentation lint ./src/**/*.mjs",
-    "lint:tsc": "tsc --allowJs --checkJs --noEmit -t es2022 ./src/*.mjs"
+    "lint:tsc": "--overwrite-- tsc --allowJs --checkJs --noEmit --module nodenext -t es2022 ./src/*.mjs"
   },
   "dependencies": {
     "content-entry": "^2.9.6"
