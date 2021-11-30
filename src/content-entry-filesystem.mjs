@@ -5,7 +5,7 @@ import { access } from "fs/promises";
 import { ContentEntry, StreamContentEntryMixin } from "content-entry";
 
 /**
- * A content entry backed by a file.
+ * A ContentEntry backed by a file.
  * @param {string} name of the file
  * @param {string} baseDir directory the file is located in
  * 
