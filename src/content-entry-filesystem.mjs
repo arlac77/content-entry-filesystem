@@ -5,11 +5,11 @@ import { ContentEntry, StreamContentEntryMixin } from "content-entry";
 
 /**
  * A content entry backed by a file.
- * @param {string} name
- * @param {string} baseDir
+ * @param {string} name of the file
+ * @param {string} baseDir directory the file is located in
  * 
- * @property {string} name
- * @property {string} baseDir
+ * @property {string} name of the file
+ * @property {string} baseDir directory the file is located in
  */
 export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
   constructor(name, baseDir) {
