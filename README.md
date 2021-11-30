@@ -24,6 +24,8 @@ content entries for the file system
     *   [Properties](#properties)
     *   [filename](#filename)
     *   [isExistent](#isexistent)
+    *   [readStream](#readstream)
+    *   [writeStream](#writestream)
     *   [getReadStream](#getreadstream)
         *   [Parameters](#parameters-1)
     *   [getWriteStream](#getwritestream)
@@ -33,17 +35,17 @@ content entries for the file system
 
 **Extends StreamContentEntryMixin(ContentEntry)**
 
-A content entry backed by a file.
+A ContentEntry backed by a file.
 
 ### Parameters
 
-*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
-*   `baseDir` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** of the file
+*   `baseDir` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** directory the file is located in
 
 ### Properties
 
-*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
-*   `baseDir` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** of the file
+*   `baseDir` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** directory the file is located in
 
 ### filename
 
@@ -56,6 +58,14 @@ Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 Check for presence.
 
 Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>** 
+
+### readStream
+
+Returns **Readable** 
+
+### writeStream
+
+Returns **Writable** 
 
 ### getReadStream
 
