@@ -1,5 +1,6 @@
 import { join } from "path";
 import { createReadStream, createWriteStream, constants } from "fs";
+import { Readable, Writable } from "stream";
 import { access } from "fs/promises";
 import { ContentEntry, StreamContentEntryMixin } from "content-entry";
 
@@ -33,10 +34,16 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
     return exits(this.filename);
   }
 
+  /**
+   * @return {Readable}
+   */
   get readStream() {
     return createReadStream(this.filename);
   }
 
+  /**
+   * @return {Writable}
+   */
   get writeStream() {
     return createWriteStream(this.filename);
   }
