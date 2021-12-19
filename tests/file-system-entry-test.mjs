@@ -8,7 +8,7 @@ test("fs entry create", async t => {
   t.is(entry.filename, "/tmp/somewhere");
   t.is(entry.isCollection, false);
   t.is(entry.isBlob, true);
-  t.is(await entry.isEmpty(), true);
+  t.is(entry.isEmpty, true);
 
   t.deepEqual(JSON.parse(JSON.stringify(entry)), {
     name: "somewhere",
