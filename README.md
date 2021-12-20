@@ -24,6 +24,7 @@ content entries for the file system
     *   [Properties](#properties)
     *   [filename](#filename)
     *   [isExistent](#isexistent)
+    *   [isEmpty](#isempty)
     *   [readStream](#readstream)
     *   [writeStream](#writestream)
     *   [getReadStream](#getreadstream)
@@ -56,6 +57,12 @@ Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 ### isExistent
 
 Check for presence of the entry.
+
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>** 
+
+### isEmpty
+
+Check is entry represents an empty file.
 
 Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>** 
 
