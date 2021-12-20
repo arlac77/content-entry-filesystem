@@ -1,14 +1,14 @@
 import { join } from "path";
 import { createReadStream, createWriteStream, constants } from "fs";
 import { Readable, Writable } from "stream";
-import { access } from "fs/promises";
+import { access, stat } from "fs/promises";
 import { ContentEntry, StreamContentEntryMixin } from "content-entry";
 
 /**
  * A ContentEntry backed by a file.
  * @param {string} name of the file
  * @param {string} baseDir directory the file is located in
- * 
+ *
  * @property {string} name of the file
  * @property {string} baseDir directory the file is located in
  */
@@ -32,6 +32,14 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
    */
   get isExistent() {
     return exits(this.filename);
+  }
+
+  /**
+   * Check is entry represents an empty file.
+   * @return {Promise<boolean>}
+   */
+  get isEmpty() {
+    return empty(this.filename);
   }
 
   /**
@@ -77,4 +85,17 @@ async function exits(file) {
   }
 
   return true;
+}
+
+async function empty(file) {
+  try {
+    const s = await stat(file);
+    return s.size === 0;
+  } catch (e) {
+    console.log(e);
+    if (e.code === "ENOENT") {
+      return true;
+    }
+    throw e;
+  }
 }

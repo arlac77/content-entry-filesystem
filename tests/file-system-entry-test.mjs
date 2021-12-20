@@ -6,9 +6,6 @@ test("fs entry create", async t => {
   const entry = new FileSystemEntry("somewhere", "/tmp");
   t.is(entry.name, "somewhere");
   t.is(entry.filename, "/tmp/somewhere");
-  t.is(entry.isCollection, false);
-  t.is(entry.isBlob, true);
-  t.is(entry.isEmpty, true);
 
   t.deepEqual(JSON.parse(JSON.stringify(entry)), {
     name: "somewhere",
@@ -24,6 +21,9 @@ test("fs entry isExistent true", async t => {
     new URL("fixtures", import.meta.url).pathname
   );
   t.true(await entry.isExistent);
+  t.false(await entry.isEmpty);
+  t.true(await entry.isBlob);
+  t.false(await entry.isCollection);
 });
 
 test("fs entry isExistent false", async t => {
@@ -32,6 +32,7 @@ test("fs entry isExistent false", async t => {
     new URL("fixtures", import.meta.url).pathname
   );
   t.false(await entry.isExistent);
+  t.true(await entry.isEmpty);
 });
 
 test("fs entry getString", async t => {
