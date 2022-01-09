@@ -35,11 +35,6 @@ test("fs entry isExistent false", async t => {
   t.true(await entry.isEmpty);
 });
 
-test("fs entry getString", async t => {
-  const entry = new FileSystemEntry("file.txt", new URL("fixtures", import.meta.url).pathname);
-  t.is(await entry.string, "abc\n");
-});
-
 test("fs entry get string", async t => {
   const entry = new FileSystemEntry("file.txt", new URL("fixtures", import.meta.url).pathname);
   t.is(await entry.string, "abc\n");
