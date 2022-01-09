@@ -26,7 +26,7 @@
     "lint:tsc": "tsc --allowJs --checkJs --noEmit -module nodenext -t es2022 ./src/*.mjs"
   },
   "dependencies": {
-    "content-entry": "^3.0.3"
+    "content-entry": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.8",
@@ -37,7 +37,7 @@
     "typescript": "^4.6.0-dev.20220109"
   },
   "engines": {
-    "node": ">=14.15.0"
+    "node": ">=14.16.1"
   },
   "repository": {
     "type": "git",
