@@ -26,10 +26,10 @@
     "lint:tsc": "tsc --allowJs --checkJs --noEmit -module nodenext -t es2022 ./src/*.mjs"
   },
   "dependencies": {
-    "content-entry": "^3.0.2"
+    "content-entry": "^3.0.3"
   },
   "devDependencies": {
-    "@types/node": "^17.0.4",
+    "@types/node": "^17.0.8",
     "ava": "^4.0.1",
     "c8": "^7.11.0",
     "documentation": "^13.2.5",
