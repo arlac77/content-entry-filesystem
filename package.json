@@ -23,7 +23,7 @@
     "docs": "documentation readme --section=API ./src/**/*.mjs",
     "lint": "npm run lint:docs && npm run lint:tsc",
     "lint:docs": "documentation lint ./src/**/*.mjs",
-    "lint:tsc": "tsc --allowJs --checkJs --noEmit -t es2022 ./src/*.mjs"
+    "lint:tsc": "tsc --allowJs --checkJs --noEmit -t es2022 -m node16 ./src/*.mjs"
   },
   "dependencies": {
     "content-entry": "^5.0.1"
@@ -34,7 +34,7 @@
     "c8": "^7.11.3",
     "documentation": "^13.2.5",
     "semantic-release": "^19.0.2",
-    "typescript": "^4.6.4"
+    "typescript": "^4.7.2"
   },
   "engines": {
     "node": ">=16.15.0"
