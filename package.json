@@ -26,7 +26,7 @@
     "lint:tsc": "tsc --allowJs --checkJs --noEmit -t es2022 -m node16 ./src/*.mjs"
   },
   "dependencies": {
-    "content-entry": "^5.0.1"
+    "content-entry": "^5.0.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.35",
