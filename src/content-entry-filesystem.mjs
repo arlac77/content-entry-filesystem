@@ -1,7 +1,7 @@
-import { join } from "path";
-import { createReadStream, createWriteStream, constants } from "fs";
-import { Readable, Writable } from "stream";
-import { access, stat } from "fs/promises";
+import { join } from "node:path";
+import { createReadStream, createWriteStream, constants } from "node:fs";
+import { Readable, Writable } from "node:stream";
+import { access, stat } from "node:fs/promises";
 import { ContentEntry, StreamContentEntryMixin } from "content-entry";
 
 /**
