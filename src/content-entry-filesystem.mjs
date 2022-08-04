@@ -42,6 +42,11 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
     return empty(this.filename);
   }
 
+  get size()
+  {
+    return stat(this.filename).then(s => s.size);	
+  }
+  
   /**
    * @return {Readable}
    */

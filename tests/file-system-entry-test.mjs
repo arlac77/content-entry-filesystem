@@ -19,6 +19,7 @@ test("fs entry isExistent true", async t => {
     "file.txt",
     new URL("fixtures", import.meta.url).pathname
   );
+  t.is(await entry.size, 4);
   t.true(await entry.isExistent);
   t.false(await entry.isEmpty);
   t.true(await entry.isBlob);
