@@ -20,6 +20,12 @@ test("fs entry isExistent true", async t => {
     new URL("fixtures", import.meta.url).pathname
   );
   t.is(await entry.size, 4);
+  /*
+  t.is(await entry.uid, 501);
+  t.is(await entry.gid, 20);
+  */
+  t.deepEqual(await entry.mtime, new Date('2021-11-16 18:32:47.129+0000'));
+
   t.true(await entry.isExistent);
   t.false(await entry.isEmpty);
   t.true(await entry.isBlob);

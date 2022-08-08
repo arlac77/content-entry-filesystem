@@ -42,11 +42,44 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
     return empty(this.filename);
   }
 
+  #stat
+
   get size()
   {
-    return stat(this.filename).then(s => s.size);	
+    if(this.#stat) {
+      return this.#stat.size;
+    }
+
+    return stat(this.filename).then(s => { this.#stat = s; return s.size } );	
   }
   
+  get mtime()
+  {
+    if(this.#stat) {
+      return this.#stat.mtime;
+    }
+
+    return stat(this.filename).then(s => { this.#stat = s; return s.mtime } );	
+  }
+
+  get uid()
+  {
+    if(this.#stat) {
+      return this.#stat.uid;
+    }
+
+    return stat(this.filename).then(s => { this.#stat = s; return s.uid } );	
+  }
+
+  get gid()
+  {
+    if(this.#stat) {
+      return this.#stat.gid;
+    }
+
+    return stat(this.filename).then(s => { this.#stat = s; return s.gid } );	
+  }
+
   /**
    * @return {Readable}
    */
