@@ -130,7 +130,6 @@ async function empty(file) {
     const s = await stat(file);
     return s.size === 0;
   } catch (e) {
-    console.log(e);
     if (e.code === "ENOENT") {
       return true;
     }
