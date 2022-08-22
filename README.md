@@ -52,33 +52,33 @@ A ContentEntry backed by a file.
 
 Absolute file path.
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
 
 ### isExistent
 
 Check for presence of the entry.
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>** 
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>**&#x20;
 
 ### isEmpty
 
 Check is entry represents an empty file.
 
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>** 
+Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>**&#x20;
 
 ### readStream
 
-Returns **Readable** 
+Returns **Readable**&#x20;
 
 ### writeStream
 
-Returns **Writable** 
+Returns **Writable**&#x20;
 
 ### getReadStream
 
 #### Parameters
 
-*   `options`  
+*   `options` &#x20;
 
 **Meta**
 
@@ -88,7 +88,7 @@ Returns **Writable**
 
 #### Parameters
 
-*   `options`  
+*   `options` &#x20;
 
 **Meta**
 
