@@ -41,7 +41,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arlac77/content-entry-filesystem.git"
+    "url": "https://github.com/arlac77/content-entry-filesystem"
   },
   "bugs": {
     "url": "https://github.com/arlac77/content-entry-filesystem/issues"
