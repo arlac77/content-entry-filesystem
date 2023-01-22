@@ -25,7 +25,7 @@
     "lint:tsc": "tsc --allowJs --checkJs --noEmit -t esnext -m esnext ./src/*.mjs"
   },
   "dependencies": {
-    "content-entry": "^5.2.16"
+    "content-entry": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
