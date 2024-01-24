@@ -28,7 +28,7 @@
     "content-entry": "^6.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.11.5",
+    "@types/node": "^20.11.6",
     "ava": "^6.1.0",
     "c8": "^9.1.0",
     "documentation": "^14.0.2",
