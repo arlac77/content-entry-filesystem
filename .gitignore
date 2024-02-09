@@ -5,6 +5,6 @@ bun.lockb
 /node_modules/**
 *.log
 *.dump
-dist
 *.node
 .test
+types
