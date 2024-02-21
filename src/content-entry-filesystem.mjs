@@ -14,6 +14,7 @@ import { ContentEntry, StreamContentEntryMixin } from "content-entry";
  */
 export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
   constructor(name, baseDir) {
+    // @ts-ignore
     super(name);
     this.baseDir = baseDir;
   }
