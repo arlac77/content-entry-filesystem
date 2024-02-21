@@ -43,42 +43,50 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
     return empty(this.filename);
   }
 
-  #stat
+  #stat;
 
-  get size()
-  {
-    if(this.#stat) {
+  get size() {
+    if (this.#stat) {
       return this.#stat.size;
     }
 
-    return stat(this.filename).then(s => { this.#stat = s; return s.size } );	
+    return stat(this.filename).then(s => {
+      this.#stat = s;
+      return s.size;
+    });
   }
-  
-  get mtime()
-  {
-    if(this.#stat) {
+
+  get mtime() {
+    if (this.#stat) {
       return this.#stat.mtime;
     }
 
-    return stat(this.filename).then(s => { this.#stat = s; return s.mtime } );	
+    return stat(this.filename).then(s => {
+      this.#stat = s;
+      return s.mtime;
+    });
   }
 
-  get uid()
-  {
-    if(this.#stat) {
+  get uid() {
+    if (this.#stat) {
       return this.#stat.uid;
     }
 
-    return stat(this.filename).then(s => { this.#stat = s; return s.uid } );	
+    return stat(this.filename).then(s => {
+      this.#stat = s;
+      return s.uid;
+    });
   }
 
-  get gid()
-  {
-    if(this.#stat) {
+  get gid() {
+    if (this.#stat) {
       return this.#stat.gid;
     }
 
-    return stat(this.filename).then(s => { this.#stat = s; return s.gid } );	
+    return stat(this.filename).then(s => {
+      this.#stat = s;
+      return s.gid;
+    });
   }
 
   /**
@@ -104,14 +112,14 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
   /**
    * @deprecated
    */
-  async getReadStream(options) {
+  getReadStream(options) {
     return createReadStream(this.filename, options);
   }
 
   /**
    * @deprecated
    */
-  async getWriteStream(options) {
+  getWriteStream(options) {
     return createWriteStream(this.filename, options);
   }
 }
