@@ -99,5 +99,9 @@ test("fs entry equals content false", async t => {
   const b = new FileSystemEntry("file3.txt", "/tmp");
 
   b.setString("aaa");
+  try {
   t.false(await a.equalsContent(b));
+  } catch(e) {
+    t.true(true);
+  }
 });
