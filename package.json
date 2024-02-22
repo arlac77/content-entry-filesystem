@@ -12,7 +12,6 @@
       "types": "./types/content-entry-filesystem.d.mts"
     }
   },
-
   "description": "Content entries within the file system",
   "contributors": [
     {
