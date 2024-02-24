@@ -9,18 +9,17 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Known Vulnerabilities](https://snyk.io/test/github/arlac77/content-entry-filesystem/badge.svg)](https://snyk.io/test/github/arlac77/content-entry-filesystem)
 [![Coverage Status](https://coveralls.io/repos/arlac77/content-entry-filesystem/badge.svg)](https://coveralls.io/github/arlac77/content-entry-filesystem)
-    *   [Parameters](#parameters)
-    *   [Properties](#properties)
-    *   [filename](#filename)
-    *   [isExistent](#isexistent)
-    *   [isEmpty](#isempty)
-    *   [readStream](#readstream)
-    *   [writeStream](#writestream)
-    *   [getReadStream](#getreadstream)
-        *   [Parameters](#parameters-1)
-    *   [getWriteStream](#getwritestream)
-        *   [Parameters](#parameters-2)## FileSystemEntry**Extends StreamContentEntryMixin(ContentEntry)**A ContentEntry backed by a file.### Parameters*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** of the file
-*   `baseDir` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** directory the file is located in### Properties*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** of the file
-*   `baseDir` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** directory the file is located in### filenameAbsolute file path.Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** ### isExistentCheck for presence of the entry.Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>** ### isEmptyCheck is entry represents an empty file.Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)>** ### readStreamReturns **Readable** ### writeStreamReturns **Writable** ### getReadStream#### Parameters*   `options` &#x20;**Meta***   **deprecated**: This is deprecated.### getWriteStream#### Parameters*   `options` &#x20;**Meta***   **deprecated**: This is deprecated.# installWith [npm](http://npmjs.org) do:```shell
-npm install content-entry-filesystem
-```# licenseBSD-2-Clause
+
+# API
+
+# install
+
+With [npm](http://npmjs.org) do:
+
+    ```shell
+npm install content-entry
+    ```
+
+# license
+
+BSD-2-Clause
