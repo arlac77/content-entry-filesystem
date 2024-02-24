@@ -6,13 +6,14 @@ import { ContentEntry, StreamContentEntryMixin } from "content-entry";
 
 /**
  * A ContentEntry backed by a file.
- * @param {string} name of the file
- * @param {string} baseDir directory the file is located in
- *
- * @property {string} name of the file
- * @property {string} baseDir directory the file is located in
  */
 export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
+  /**
+   * @param {string} name of the file
+   * @param {string} baseDir directory the file is located in
+   * @property {string} name of the file
+   * @property {string} baseDir directory the file is located in
+   */
   constructor(name, baseDir) {
     // @ts-ignore
     super(name);
