@@ -1,5 +1,6 @@
 import { join } from "node:path";
 import { createReadStream, createWriteStream, constants } from "node:fs";
+import { ReadableStream } from 'node:stream/web';
 import { Readable, Writable } from "node:stream";
 import { access, stat } from "node:fs/promises";
 import { ContentEntry, StreamContentEntryMixin } from "content-entry";
@@ -91,17 +92,17 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
   }
 
   /**
-   * @return {Readable}
+   * @return {ReadableStream}
    */
   get readStream() {
-    return createReadStream(this.filename);
+    return Readable.toWeb(createReadStream(this.filename));
   }
 
   /**
-   * @return {Writable}
+   * @return {WritableStream}
    */
   get writeStream() {
-    return createWriteStream(this.filename);
+    return Writable.toWeb(createWriteStream(this.filename));
   }
 
   toJSON() {
@@ -114,7 +115,7 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
    * @deprecated
    */
   getReadStream(options) {
-    return createReadStream(this.filename, options);
+    return Readable.toWeb(createReadStream(this.filename, options));
   }
 
   /**

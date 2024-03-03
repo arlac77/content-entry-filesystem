@@ -59,7 +59,7 @@ test("fs entry get readStream", async t => {
   for await (chunk of await entry.readStream) {
   }
 
-  t.deepEqual(chunk, Buffer.from(Uint8Array.of(97, 98, 99, 0x0a)));
+  t.deepEqual(chunk, Uint8Array.of(97, 98, 99, 0x0a));
 });
 
 test("fs entry getReadStream", async t => {
