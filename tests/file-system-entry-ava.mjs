@@ -100,8 +100,8 @@ test("fs entry equals content false", async t => {
 
   b.setString("aaa");
   try {
-  t.false(await a.equalsContent(b));
-  } catch(e) {
+    t.false(await a.equalsContent(b));
+  } catch (e) {
     t.true(true);
   }
 });
