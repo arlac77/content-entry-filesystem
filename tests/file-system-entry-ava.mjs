@@ -14,7 +14,7 @@ test("fs entry create", async t => {
   });
 });
 
-test("fs entry isExistent true", async t => {
+test("fs entry isExistent true + properties", async t => {
   const entry = new FileSystemEntry(
     "file.txt",
     new URL("fixtures", import.meta.url).pathname
@@ -22,9 +22,8 @@ test("fs entry isExistent true", async t => {
   t.is(await entry.size, 4);
   /*
   t.is(await entry.uid, 501);
-  t.is(await entry.gid, 20);
+  t.is(await entry.gid, 20);*/
   t.deepEqual(await entry.mtime, new Date('2021-11-16 18:32:47.129+0000'));
-  */
 
   t.true(await entry.isExistent);
   t.false(await entry.isEmpty);
