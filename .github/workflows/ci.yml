@@ -8,10 +8,8 @@ on:
     branches:
       - master
       - next
-      
 permissions:
   contents: read
-      
 jobs:
   test-node:
     runs-on: ubuntu-latest
