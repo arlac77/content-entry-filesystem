@@ -63,20 +63,20 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
     });
   }
 
-    /**
+  /**
    * @return {Promise<Date>}
    */
-    get atime() {
-      if (this.#stat) {
-        return this.#stat.ctime;
-      }
-  
-      return stat(this.filename).then(stat => {
-        this.#stat = stat;
-        return stat.atime;
-      });
+  get atime() {
+    if (this.#stat) {
+      return this.#stat.ctime;
     }
-  
+
+    return stat(this.filename).then(stat => {
+      this.#stat = stat;
+      return stat.atime;
+    });
+  }
+
   /**
    * @return {Promise<Date>}
    */
