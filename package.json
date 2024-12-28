@@ -8,8 +8,8 @@
   "types": "./types/content-entry-filesystem.d.mts",
   "exports": {
     ".": {
-      "default": "./src/content-entry-filesystem.mjs",
-      "types": "./types/content-entry-filesystem.d.mts"
+      "types": "./types/content-entry-filesystem.d.mts",
+      "default": "./src/content-entry-filesystem.mjs"
     }
   },
   "description": "Content entries within the file system",
