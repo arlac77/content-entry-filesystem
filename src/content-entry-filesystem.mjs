@@ -52,6 +52,20 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
   /**
    * @return {Promise<number>}
    */
+  get mode() {
+    if (this.#stat) {
+      return this.#stat.mode;
+    }
+
+    return stat(this.filename).then(stat => {
+      this.#stat = stat;
+      return stat.mode;
+    });
+  }
+
+  /**
+   * @return {Promise<number>}
+   */
   get size() {
     if (this.#stat) {
       return this.#stat.size;
