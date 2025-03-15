@@ -61,6 +61,19 @@ test("fs entry get readStream", async t => {
   t.deepEqual(chunk, Uint8Array.of(97, 98, 99, 0x0a));
 });
 
+test("fs copy readStream", async t => {
+  const entry = new FileSystemEntry(
+    "file.txt",
+    new URL("fixtures", import.meta.url).pathname
+  );
+
+  let chunk;
+  for await (chunk of await entry.readStream) {
+  }
+
+  t.deepEqual(chunk, Uint8Array.of(97, 98, 99, 0x0a));
+});
+
 test("fs entry getReadStream", async t => {
   const entry = new FileSystemEntry(
     "file.txt",
