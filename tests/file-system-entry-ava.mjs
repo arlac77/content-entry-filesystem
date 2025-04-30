@@ -81,7 +81,7 @@ test("fs entry getReadStream", async t => {
   );
 
   let chunk;
-  for await (chunk of await entry.getReadStream({ encoding: "utf-8" })) {
+  for await (chunk of await entry.getReadStream({ encoding: "utf8" })) {
   }
 
   t.is(chunk, "abc\n");
