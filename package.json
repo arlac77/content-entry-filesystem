@@ -32,7 +32,7 @@
     "lint:typescript": "tsc --allowJs --checkJs --noEmit --resolveJsonModule --target esnext -m esnext --module nodenext --moduleResolution nodenext ./src**/*.mjs"
   },
   "dependencies": {
-    "content-entry": "^13.7.0"
+    "content-entry": "^13.7.2"
   },
   "devDependencies": {
     "@types/node": "^22.15.17",

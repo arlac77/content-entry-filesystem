@@ -47,104 +47,64 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
     return empty(this.filename);
   }
 
-  #stat;
+  getStat() {
+    return this._stat || stat(this.filename).then(stat => (this._stat = stat));
+  }
 
   /**
    * @return {Promise<number>}
    */
   get mode() {
-    if (this.#stat) {
-      return this.#stat.mode;
-    }
-
-    return stat(this.filename).then(stat => {
-      this.#stat = stat;
-      return stat.mode;
-    });
+    const stat = this.getStat();
+    return stat.then ? stat.then(stat => stat.mode) : stat.mode;
   }
 
   /**
    * @return {Promise<number>}
    */
   get size() {
-    if (this.#stat) {
-      return this.#stat.size;
-    }
-
-    return stat(this.filename).then(stat => {
-      this.#stat = stat;
-      return stat.size;
-    });
+    const stat = this.getStat();
+    return stat.then ? stat.then(stat => stat.size) : stat.size;
   }
 
   /**
    * @return {Promise<Date>}
    */
   get atime() {
-    if (this.#stat) {
-      return this.#stat.ctime;
-    }
-
-    return stat(this.filename).then(stat => {
-      this.#stat = stat;
-      return stat.atime;
-    });
+    const stat = this.getStat();
+    return stat.then ? stat.then(stat => stat.atime) : stat.atime;
   }
 
   /**
    * @return {Promise<Date>}
    */
   get ctime() {
-    if (this.#stat) {
-      return this.#stat.ctime;
-    }
-
-    return stat(this.filename).then(stat => {
-      this.#stat = stat;
-      return stat.ctime;
-    });
+    const stat = this.getStat();
+    return stat.then ? stat.then(stat => stat.ctime) : stat.ctime;
   }
 
   /**
    * @return {Promise<Date>}
    */
   get mtime() {
-    if (this.#stat) {
-      return this.#stat.mtime;
-    }
-
-    return stat(this.filename).then(stat => {
-      this.#stat = stat;
-      return stat.mtime;
-    });
+    const stat = this.getStat();
+    return stat.then ? stat.then(stat => stat.mtime) : stat.mtime;
   }
 
   /**
    * @return {Promise<number>}
    */
   get uid() {
-    if (this.#stat) {
-      return this.#stat.uid;
-    }
-
-    return stat(this.filename).then(stat => {
-      this.#stat = stat;
-      return stat.uid;
-    });
+    const stat = this.getStat();
+    return stat.then ? stat.then(stat => stat.uid) : stat.uid;
   }
 
   /**
    * @return {Promise<number>}
    */
   get gid() {
-    if (this.#stat) {
-      return this.#stat.gid;
-    }
-
-    return stat(this.filename).then(stat => {
-      this.#stat = stat;
-      return stat.gid;
-    });
+    const stat = this.getStat();
+    return stat.then ? stat.then(stat => stat.gid) : stat.gid;
   }
 
   /**
@@ -167,6 +127,12 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
    */
   toJSON() {
     const json = super.toJSON();
+
+    if (this._stat?.next || this._stat === undefined) {
+      delete json.mode;
+    } else {
+      json.mode = this._stat.mode;
+    }
     json.baseDir = this.baseDir;
     return json;
   }

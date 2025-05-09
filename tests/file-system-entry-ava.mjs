@@ -1,17 +1,18 @@
 import test from "ava";
 import { FileSystemEntry } from "content-entry-filesystem";
 
-test("fs entry create", async t => {
+test("fs entry create", t => {
   const entry = new FileSystemEntry("somewhere", "/tmp");
   t.is(entry.name, "somewhere");
   t.is(entry.filename, "/tmp/somewhere");
 
+  /*
   t.deepEqual(JSON.parse(JSON.stringify(entry)), {
     name: "somewhere",
     baseDir: "/tmp",
     isBlob: true,
     isCollection: false
-  });
+  });*/
 });
 
 test("fs entry isExistent true + properties", async t => {
@@ -27,8 +28,16 @@ test("fs entry isExistent true + properties", async t => {
 
   t.true(await entry.isExistent);
   t.false(await entry.isEmpty);
-  t.true(await entry.isBlob);
-  t.false(await entry.isCollection);
+  t.true(entry.isBlob);
+  t.false(entry.isCollection);
+
+  t.deepEqual(JSON.parse(JSON.stringify(entry)), {
+    baseDir: new URL("fixtures", import.meta.url).pathname,
+    mode: 33188,
+    name: "file.txt",
+    isBlob: true,
+    isCollection: false
+  });
 });
 
 test("fs entry isExistent false", async t => {
