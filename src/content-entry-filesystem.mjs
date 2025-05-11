@@ -3,12 +3,12 @@ import { createReadStream, createWriteStream, constants } from "node:fs";
 import { ReadableStream } from "node:stream/web";
 import { Readable, Writable } from "node:stream";
 import { access, stat } from "node:fs/promises";
-import { ContentEntry, StreamContentEntryMixin } from "content-entry";
+import { ContentEntry, StreamContentEntry } from "content-entry";
 
 /**
  * A ContentEntry backed by a file.
  */
-export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
+export class FileSystemEntry extends StreamContentEntry {
   /** @type {string} */ baseDir;
 
   /**
@@ -19,7 +19,7 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
    */
   constructor(name, baseDir) {
     // @ts-ignore
-    super(name);
+    super(name, undefined, async (entry) => Readable.toWeb(createReadStream(entry.filename)));
     this.baseDir = baseDir;
   }
 
@@ -108,13 +108,6 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
   }
 
   /**
-   * @return {ReadableStream}
-   */
-  get readStream() {
-    return Readable.toWeb(createReadStream(this.filename));
-  }
-
-  /**
    * @return {WritableStream}
    */
   get writeStream() {
@@ -135,20 +128,6 @@ export class FileSystemEntry extends StreamContentEntryMixin(ContentEntry) {
     }
     json.baseDir = this.baseDir;
     return json;
-  }
-
-  /**
-   * @deprecated
-   */
-  getReadStream(options) {
-    return Readable.toWeb(createReadStream(this.filename, options));
-  }
-
-  /**
-   * @deprecated
-   */
-  getWriteStream(options) {
-    return createWriteStream(this.filename, options);
   }
 }
 
