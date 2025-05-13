@@ -1,9 +1,8 @@
 import { join } from "node:path";
 import { createReadStream, createWriteStream, constants } from "node:fs";
-import { ReadableStream } from "node:stream/web";
 import { Readable, Writable } from "node:stream";
 import { access, stat } from "node:fs/promises";
-import { ContentEntry, StreamContentEntry } from "content-entry";
+import { StreamContentEntry } from "content-entry";
 
 /**
  * A ContentEntry backed by a file.
