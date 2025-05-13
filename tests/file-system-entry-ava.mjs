@@ -40,13 +40,16 @@ test("fs entry isExistent true + properties", async t => {
     new URL("fixtures", import.meta.url).pathname
   );
   t.is(await entry.size, 4);
-  /*
-  t.is(await entry.uid, 501);
-  t.is(await entry.gid, 20);*/
+
+  t.true((await entry.uid) > 100);
+  t.true((await entry.gid) > 1);
+
   //t.deepEqual(await entry.mtime, new Date('2021-11-16 18:32:47.129+0000'));
 
   t.true(await entry.isExistent);
   t.false(await entry.isEmpty);
+  t.is(await entry.mode, 0o100644); // 1st. time async
+  t.is(entry.mode, 0o100644); // then sync
   t.true(entry.isBlob);
   t.false(entry.isCollection);
 
@@ -76,7 +79,7 @@ test("fs entry get string", async t => {
   t.is(await entry.string, "abc\n");
 });
 
-test("fs entry get readStream", async t => {
+test("fs entry get stream", async t => {
   const entry = new FileSystemEntry(
     "file.txt",
     new URL("fixtures", import.meta.url).pathname
@@ -89,7 +92,7 @@ test("fs entry get readStream", async t => {
   t.deepEqual(chunk, Uint8Array.of(97, 98, 99, 0x0a));
 });
 
-test("fs copy readStream", async t => {
+test("fs copy stream", async t => {
   const entry = new FileSystemEntry(
     "file.txt",
     new URL("fixtures", import.meta.url).pathname

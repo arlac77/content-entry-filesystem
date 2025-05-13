@@ -61,16 +61,20 @@ export class FileSystemEntry extends StreamContentEntry {
    * @return {number|Promise<number>}
    */
   get mode() {
-    if(this._mode !== undefined) {
+    if (this._mode !== undefined) {
       return this._mode;
     }
-    
+
     const stat = this.getStat();
-    return stat.then ? stat.then(stat => stat.mode) : stat.mode;
+    return stat.then
+      ? stat.then(stat => {
+          this._mode = stat.mode;
+          return this._mode;
+        })
+      : stat.mode;
   }
 
-  set mode(value)
-  {
+  set mode(value) {
     super.mode = value;
   }
 
