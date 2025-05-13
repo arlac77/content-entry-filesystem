@@ -14,12 +14,19 @@ export class FileSystemEntry extends StreamContentEntry {
    * @param {string} name of the file
    * @param {string} baseDir directory the file is located in
    * @property {string} name of the file
-   * @property {string} baseDir directory the file is located in
+   * @property {object|string} options directory the file is located in
+   * @property {string} options.basedir directory the file is located in
    */
-  constructor(name, baseDir) {
-    // @ts-ignore
-    super(name, undefined, async (entry) => Readable.toWeb(createReadStream(entry.filename)));
-    this.baseDir = baseDir;
+  constructor(name, options) {
+    super(name, options, async entry =>
+      Readable.toWeb(createReadStream(entry.filename))
+    );
+
+    if (typeof options === "string") {
+      this.baseDir = options;
+    } else {
+      this.baseDir = options.baseDir;
+    }
   }
 
   /**
@@ -51,11 +58,20 @@ export class FileSystemEntry extends StreamContentEntry {
   }
 
   /**
-   * @return {Promise<number>}
+   * @return {number|Promise<number>}
    */
   get mode() {
+    if(this._mode !== undefined) {
+      return this._mode;
+    }
+    
     const stat = this.getStat();
     return stat.then ? stat.then(stat => stat.mode) : stat.mode;
+  }
+
+  set mode(value)
+  {
+    super.mode = value;
   }
 
   /**

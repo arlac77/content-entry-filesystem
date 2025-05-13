@@ -16,6 +16,24 @@ test("fs entry create", t => {
   });*/
 });
 
+test("fs entry create full options", t => {
+  const entry = new FileSystemEntry("somewhere", {
+    baseDir: "/tmp",
+    mode: 0o444
+  });
+  t.is(entry.name, "somewhere");
+  t.is(entry.filename, "/tmp/somewhere");
+  t.is(entry.mode, 0o444);
+
+  /*
+  t.deepEqual(JSON.parse(JSON.stringify(entry)), {
+    name: "somewhere",
+    baseDir: "/tmp",
+    isBlob: true,
+    isCollection: false
+  });*/
+});
+
 test("fs entry isExistent true + properties", async t => {
   const entry = new FileSystemEntry(
     "file.txt",
