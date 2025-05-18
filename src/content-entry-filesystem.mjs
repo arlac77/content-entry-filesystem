@@ -39,7 +39,7 @@ export class FileSystemEntry extends StreamContentEntry {
 
   /**
    * Check for presence of the entry.
-   * @return {Promise<boolean>}
+   * @return {Promise<boolean>|boolean}
    */
   get isExistent() {
     return exits(this.filename);
@@ -47,7 +47,7 @@ export class FileSystemEntry extends StreamContentEntry {
 
   /**
    * Check is entry represents an empty file.
-   * @return {Promise<boolean>}
+   * @return {Promise<boolean>|boolean}
    */
   get isEmpty() {
     return empty(this.filename);
@@ -79,7 +79,7 @@ export class FileSystemEntry extends StreamContentEntry {
   }
 
   /**
-   * @return {Promise<number>}
+   * @return {Promise<number>|number}
    */
   get size() {
     const stat = this.getStat();
