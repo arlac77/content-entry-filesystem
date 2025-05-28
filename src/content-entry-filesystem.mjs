@@ -12,7 +12,7 @@ export class FileSystemEntry extends StreamContentEntry {
 
   /**
    * @param {string} name of the file
-   * @param {string} baseDir directory the file is located in
+   * @param {string|Object} options directory the file is located in
    * @property {string} name of the file
    * @property {object|string} options directory the file is located in
    * @property {string} options.basedir directory the file is located in
@@ -79,7 +79,7 @@ export class FileSystemEntry extends StreamContentEntry {
   }
 
   /**
-   * @return {Promise<number>|number}
+   * @return {number|Promise<number>}
    */
   get size() {
     const stat = this.getStat();
