@@ -13,9 +13,9 @@ export class FileSystemEntry extends StreamContentEntry {
   /**
    * @param {string} name of the file
    * @param {string|Object} options directory the file is located in
+   * @param {string} options.basedir directory the file is located in
    * @property {string} name of the file
-   * @property {object|string} options directory the file is located in
-   * @property {string} options.basedir directory the file is located in
+   * @property {string} basedir directory the file is located in
    */
   constructor(name, options) {
     super(name, options, async entry =>
@@ -54,7 +54,7 @@ export class FileSystemEntry extends StreamContentEntry {
   }
 
   getStat() {
-    return this._stat || stat(this.filename).then(stat => (this._stat = stat));
+    return this._stat ?? stat(this.filename).then(stat => (this._stat = stat));
   }
 
   /**
