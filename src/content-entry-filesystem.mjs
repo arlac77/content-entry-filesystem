@@ -14,6 +14,7 @@ export class FileSystemEntry extends StreamContentEntry {
    * @param {string} name of the file
    * @param {string|Object} options directory the file is located in
    * @param {string} options.basedir directory the file is located in
+   * @param {number} options.mode unix permission
    * @property {string} name of the file
    * @property {string} basedir directory the file is located in
    */
